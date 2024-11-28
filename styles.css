@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     margin: 0;
     font-family: 'Georgia', serif;
@@ -16,7 +15,6 @@ body {
     z-index: -1;
 }
 
-/* Main Container */
 .container {
     position: relative;
     display: flex;
@@ -27,7 +25,6 @@ body {
     padding: 10px;
 }
 
-/* Invitation Details */
 .invitation-details {
     width: 90%;
     max-width: 500px;
@@ -45,6 +42,7 @@ body {
 .invitation-details p {
     margin: 10px 0;
 }
+
 @keyframes slideInFade {
     0% {
         opacity: 0;
@@ -56,7 +54,6 @@ body {
     }
 }
 
-/* Girl and Boy Containers */
 .girl-container, .boy-container {
     position: absolute;
 }
@@ -71,7 +68,6 @@ body {
     left: 20px;
 }
 
-/* Details Section */
 .girl-details, .boy-details {
     display: flex;
     flex-direction: column;
@@ -94,7 +90,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -115,18 +110,17 @@ body {
 
 .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
+    top: 25px;
+    right: 45px;
+    color: #0a0a0a;
+    font-size: 50px;
 }
 
 footer {
-    text-align: center; /* Center the text */
-    color: white; /* Set text color to white */
+    text-align: center;
+    color: white;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .girl-container {
         top: 10px;
@@ -162,7 +156,6 @@ footer {
     }
 }
 
-/* Extra Small Screens */
 @media (max-width: 600px) {
     .girl-details img, .boy-details img {
         width: 80px;
@@ -191,7 +184,6 @@ footer {
     }
 }
 
-/* Add splash screen styling */
 .splash {
     position: fixed;
     top: 0;
@@ -212,25 +204,21 @@ footer {
     margin: 0;
 }
 
-/* Initially hide each word */
 .word {
     opacity: 0;
     transform: translateY(20px);
 }
 
-/* Animation to show each word */
 .showWord {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 1s, transform 1s ease-out;
 }
 
-/* Hide splash screen after animation */
 .splash .shloka {
     text-align: center;
 }
 
-/* Additional styling for body, background, and other content */
 body {
     margin: 0;
     padding: 0;
@@ -242,16 +230,18 @@ body {
     z-index: 1;
 }
 
-
-/* Responsive for all screens */
 @media (max-width: 768px) {
     .shloka {
         font-size: 1.2em;
     }
 }
 
-/* Fade-out animation for Splash screen */
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
