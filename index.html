@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ring Ceremony Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash">
+        <!-- Display Shloka in both Mobile and Web view -->
+        <div class="shloka">
+            <p>
+                <span class="word">वक्रतुण्ड</span> 
+                <span class="word">महाकाय</span> 
+                <span class="word">सूर्यकोटि</span> 
+                <span class="word">समप्रभ</span> 
+                <br>
+                <span class="word">निर्विघ्नं</span> 
+                <span class="word">कुरु</span> 
+                <span class="word">मे</span> 
+                <span class="word">देव</span>
+                <span class="word">सर्वकार्येषु</span> 
+                <span class="word">सर्वदा</span> ॥<br>
+            </p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop playsinline>
+        <source src="nk.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="ring.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Girl's Details Section -->
+        <div class="girl-container">
+            <div class="girl-details">
+                <img src="groom.jpg" alt="Bride's Photo" id="brideImage">
+                <div class="details-box">
+                    <h3>आयुष्मती कुमारी:आकांक्षा गौतम</h3>
+                    <p>कैलाश प्रसाद गौतम, सीमा गौतम (माता पिता)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invitation Details -->
+        <div class="invitation-details">
+            <h1>You're Invited!</h1>
+            <p>We are delighted to invite you and your family to our</p>
+            <h2>Ring Ceremony</h2>
+            <p><strong>Date:</strong> December 5, 2024</p>
+            <p><strong>Time:</strong> 3:00 PM</p>
+            <p><strong>Venue:</strong> Khana Palace (Amarpatan)</p>
+        </div>
+
+        <!-- Boy's Details Section -->
+        <div class="boy-container">
+            <div class="boy-details">
+                <img src="bride.jpg" alt="Groom's Photo" id="groomImage">
+                <div class="details-box">
+                    <h3>आयुष्मान:शुभम शुक्ला</h3>
+                    <p>सपुत्र => ब्रजेश शुक्ला, सविता शुक्ला (माता पिता)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image View -->
+    <div id="myModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Thank You Note -->
+    <footer>
+        <p>Thank you for joining us on this special occasion.</p>
+    </footer>
+
+    <script>
+        // Splash Screen functionality
+        window.onload = function () {
+            const splashScreen = document.getElementById("splashScreen");
+            const backgroundMusic = document.getElementById("backgroundMusic");
+            const words = document.querySelectorAll('.word');
+    
+            // Play background music when the splash screen starts
+            backgroundMusic.play();
+    
+            // Add animation class to each word with a delay
+            words.forEach((word, index) => {
+                setTimeout(() => {
+                    word.classList.add('showWord');
+                }, index * 500); // Delay each word by 500ms
+            });
+    
+            // Hide the splash screen after the last word animation finishes
+            setTimeout(() => {
+                splashScreen.style.animation = "fadeOut 1s forwards";
+                setTimeout(() => {
+                    splashScreen.style.display = "none";
+                }, 1000); // Matches the fade-out duration
+            }, words.length * 500 + 1000); // Total delay for words + extra time
+        };
+    
+        // Modal functionality for image view
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("modalImage");
+        const brideImage = document.getElementById("brideImage");
+        const groomImage = document.getElementById("groomImage");
+    
+        // Open modal for bride's image
+        brideImage.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        };
+    
+        // Open modal for groom's image
+        groomImage.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        };
+    
+        // Close modal
+        document.getElementById("closeModal").onclick = function () {
+            modal.style.display = "none";
+        };
+    </script>
+    
+</body>
+</html>
