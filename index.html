@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Splash Screen -->
     <div id="splashScreen" class="splash">
         <div class="shloka">
             <p>
@@ -25,56 +26,61 @@
         </div>
     </div>
 
+    <!-- Background Video -->
     <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    id="backgroundVideo" 
-    preload="auto" 
-    poster="placeholder.jpg">
-    <source src="ring.webm" type="video/webm">
-    <source src="ring.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+        autoplay 
+        loop 
+        playsinline 
+        id="backgroundVideo" 
+        preload="auto" 
+        poster="placeholder.jpg">
+        <source src="ring.webm" type="video/webm">
+        <source src="ring.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-
+    <!-- Invitation Details -->
     <div class="container">
+        <!-- Bride Details -->
         <div class="girl-container">
             <div class="girl-details">
                 <img src="bridee.jpg" alt="Bride's Photo" id="brideImage">
                 <div class="details-box">
-                    <h3>आयुष्मती कुमारी:आकांक्षा गौतम</h3>
-                    <p>सुपुत्री =>कैलाश प्रसाद गौतम, सीमा गौतम (माता पिता)</p>
+                    <h3>आयुष्मती कुमारी: आकांक्षा गौतम</h3>
+                    <p>सुपुत्री => कैलाश प्रसाद गौतम, सीमा गौतम (माता-पिता)</p>
                 </div>
             </div>
         </div>
 
+        <!-- Invitation Text -->
         <div class="invitation-details">
             <h1>You're Invited!</h1>
             <p>We are delighted to invite you and your family to our</p>
             <h2>Ring Ceremony</h2>
             <p><strong>Date:</strong> December 5, 2024</p>
             <p><strong>Time:</strong> 3:00 PM</p>
-            <p><strong>Venue:</strong> Kana Palace (Amarpatan)</p>
+            <p><strong>Venue:</strong> Kanha Palace (Amarpatan)</p>
         </div>
 
+        <!-- Groom Details -->
         <div class="boy-container">
             <div class="boy-details">
                 <img src="groom.jpg" alt="Groom's Photo" id="groomImage">
                 <div class="details-box">
-                    <h3>आयुष्मान:शुभम शुक्ला</h3>
-                    <p>सपुत्र => ब्रजेश शुक्ला, सविता शुक्ला (माता पिता)</p>
+                    <h3>आयुष्मान: शुभम शुक्ला</h3>
+                    <p>सपुत्र => ब्रजेश शुक्ला, सविता शुक्ला (माता-पिता)</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal for Images -->
     <div id="myModal" class="modal">
         <span class="close" id="closeModal">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>Thank you for joining us on this special occasion.</p>
@@ -86,12 +92,15 @@
         window.onload = function () {
             const splashScreen = document.getElementById("splashScreen");
             const words = document.querySelectorAll('.word');
+            
+            // Add animation to words in the splash screen
             words.forEach((word, index) => {
                 setTimeout(() => {
                     word.classList.add('showWord');
                 }, index * 500);
             });
-    
+            
+            // Fade out splash screen after animations
             setTimeout(() => {
                 splashScreen.style.animation = "fadeOut 1s forwards";
                 setTimeout(() => {
@@ -99,22 +108,34 @@
                 }, 1000);
             }, words.length * 500 + 500);
         };
-    
+
+        const video = document.getElementById("backgroundVideo");
+        
+        // Ensure the video starts muted and unmute after user interaction
+        video.muted = true;
+        document.body.addEventListener("click", () => {
+            video.muted = false;
+            video.play();
+        }, { once: true }); // Trigger only on the first interaction
+
         const modal = document.getElementById("myModal");
         const modalImg = document.getElementById("modalImage");
         const brideImage = document.getElementById("brideImage");
         const groomImage = document.getElementById("groomImage");
-    
+
+        // Show modal with bride's image
         brideImage.onclick = function () {
             modal.style.display = "block";
             modalImg.src = this.src;
         };
-    
+
+        // Show modal with groom's image
         groomImage.onclick = function () {
             modal.style.display = "block";
             modalImg.src = this.src;
         };
-    
+
+        // Close the modal
         document.getElementById("closeModal").onclick = function () {
             modal.style.display = "none";
         };
